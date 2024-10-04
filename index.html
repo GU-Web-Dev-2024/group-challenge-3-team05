@@ -112,17 +112,12 @@
         const startButton = document.getElementById('startButton');
 
         // Add event listener to the start button
-
         startButton.addEventListener('click', startGame);
 
         // TODO: start game logic
         function startGame() {
             // Algorithm:
-            // 1. Reset game variables: score starts at 0, timer starts at max, mole visibility, etc.          
-            // 2. Update JS variables and HTML elements to reflect this.            
-            // 3. Start the mole movement interval using setInterval().
-            //    e.g., - gameTimer = setInterval(randomHole, 1000); // Move mole every second
-            // 4. Start the countdown timer using setInterval().
+            // 1. Reset game variables: score starts at 0, timer starts at max, mole visibility, etc.
 
             score = 0;
             timeLeft = 10;
@@ -132,6 +127,21 @@
 
             gameTimer = setInterval(randomHole, 1000);
             countdownTimer = setInterval(countdown, 1000);
+
+            // Countdown timer
+            function countdown() {
+                timeLeft--;
+                document.getElementById('timer').textContent = `Time Left: ${timeLeft}s`;
+                if (timeLeft === 0) {
+                    endGame();
+                }
+            }
+
+            // 2. Update JS variables and HTML elements to reflect this.
+            // 3. Start the mole movement interval using setInterval().
+            //    e.g., - gameTimer = setInterval(randomHole, 1000); // Move mole every second
+            // 4. Start the countdown timer using setInterval().
+
         }
 
         // TODO: mole movement logic
