@@ -135,7 +135,7 @@
 
             // 2. Update JS variables and HTML elements to reflect this.
 
-            
+
             // 3. Start the mole movement interval using setInterval().
             //    e.g., - gameTimer = setInterval(randomHole, 1000); // Move mole every second
             // 4. Start the countdown timer using setInterval().
@@ -145,11 +145,11 @@
         // TODO: mole movement logic
         function randomHole() {
             // Algorithm:
-            // 1. Hide the mole in the previous hole (if any).           
+            // 1. Hide the mole in the previous hole (if any).
             // 2. Generate a random index to select a new hole. 
             //      hint: you need to then find all "mole holes" and randomly choose one from the list.           
             // 3. Show the mole in the new hole.            
-            // 4. Add a click event listener to the mole to handle "whacking".            
+            // 4. Add a click event listener to the mole to handle "whacking".
         }
 
         // TODO: whack mole game logic
@@ -169,10 +169,18 @@
             clearInterval(countdownTimer);
 
             // 2. Hide any remaining mole on the grid.
-            // 3. Display an alert or message showing the final score.            
-            // 4. Reset the game to allow playing again.
-        }
+            const moles = document.querySelectorAll('.mole');
+            moles.forEach(mole => mole.style.display = 'none');
 
+            // 3. Display an alert or message showing the final score.
+            alert(`Game Over! Your final score is: ${score}`);
+
+            // 4. Reset the game to allow playing again.
+            score = 0;
+            timeLeft = 10;
+            document.getElementById('score-board').textContent = `Score: ${score}`;
+            document.getElementById('timer').textContent = `Time Left: ${timeLeft}s`;
+        }
         // Helpful Tips:
         // - Use setInterval() to create "loops" for mole movement and countdown timer.
         // - Use Math.random() and Math.floor() to select a random hole.
