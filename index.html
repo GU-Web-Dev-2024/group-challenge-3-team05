@@ -152,24 +152,47 @@
                 currentHole = currentHole;
             } else {
             // 2. Generate a random index to select a new hole. 
-             //      hint: you need to then find all "mole holes" and randomly choose one from the list.   
-                currentHole = Math.floor(Math.random() * 6); // random #0-5
-            }
-        
+             //      hint: you need to then find all "mole holes" and randomly choose one from the list. 
             // 3. Show the mole in the new hole.
+                const whackButton = none;
+                currentHole = Math.floor(Math.random() * 6); // random #0-5
+                if (currentHole == 0) {
+                    document.getElementById('hole1').style.setProperty("display", 1)
+                    whackButton = document.getElementById('hole1');
+
+                } else if (currentHole == 1) {
+                    document.getElementById('hole2').style.setProperty("display", 1)
+                    whackButton = document.getElementById('hole2');
+
+                } else if (currentHole == 2) {
+                    document.getElementById('hole3').style.setProperty("display", 1)
+                    whackButton = document.getElementById('hole3');
+
+                } else if (currentHole == 3) {
+                    document.getElementById('hole4').style.setProperty("display", 1)
+                    whackButton = document.getElementById('hole4');
+
+                } else if (currentHole == 4) {
+                    document.getElementById('hole5').style.setProperty("display", 1)
+                    whackButton = document.getElementById('hole5');
+
+                } else if (currentHole == 5) {
+                    document.getElementById('hole6').style.setProperty("display", 1)
+                    whackButton = document.getElementById('hole6');
+
+                } 
+                whackButton.addEventListener('click', whack())
+        
 
             // 4. Add a click event listener to the mole to handle "whacking".            
         }
+        }
 
         // TODO: whack mole game logic
-        function whack(chosenHole) {
+        function whack() {
             // Algorithm:
             // 0. if the mole is visible...
-            if (chosenHole == currentHole) {
-                // 1. Increase the score.           
-                sc
-
-            }
+        
             // 2. Update the score display in the HTML.           
             // 3. Hide the mole after it's whacked.            
         }
