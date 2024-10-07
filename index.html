@@ -97,6 +97,7 @@
 
 <script>
     // Set up local variables
+    // Hint: Declare variables for score, currentHole, gameTimer, timeLeft, moleVisible, etc.
     score = 0;
     currentHole = null;
     gameTimer = null;
@@ -111,14 +112,19 @@
     startButton.addEventListener('click', startGame);
 
     function startGame() {
-        // Reset game variables
+        // 1. Reset game variables: score starts at 0, timer starts at max, mole visibility, etc.
         score = 0;
         timeLeft = 10;
         moleVisible = false;
+
+        // 2. Update JS variables and HTML elements to reflect this.
         document.getElementById('score-board').textContent = `Score: ${score}`;
         document.getElementById('timer').textContent = `Time Left: ${timeLeft}s`;
 
+        // 3. Start the mole movement interval using setInterval().
         gameTimer = setInterval(randomHole, 1000);
+
+        // 4. Start the countdown timer using setInterval().
         countdownTimer = setInterval(countdown, 1000);
     }
 
@@ -131,28 +137,28 @@
     }
 
     function randomHole() {
-        // Hide the mole in the previous hole (if any)
+        // 1. Hide the mole in the previous hole (if any).
         if (currentHole) {
             currentHole.querySelector('.mole').style.display = 'none';
         }
 
-        // Generate a random index to select a new hole
+        // 2. Generate a random index to select a new hole.
         const holes = document.querySelectorAll('.hole');
         const randomIndex = Math.floor(Math.random() * holes.length);
         currentHole = holes[randomIndex];
 
-        // Show the mole in the new hole
+        // 3. Show the mole in the new hole
         const mole = currentHole.querySelector('.mole');
         mole.style.display = 'block';
         moleVisible = true;
     }
 
     function whack(event) {
-        // Check if the mole is visible
+        // 0. Check if the mole is visible
         if (event.target.style.display !== 'none') {
-            score++; // Increment the score
-            document.getElementById('score-board').textContent = `Score: ${score}`; // Update the score display
-            event.target.style.display = 'none'; // Hide the mole
+            score++; // 1. Increment the score
+            document.getElementById('score-board').textContent = `Score: ${score}`; // 2. Update the score display
+            event.target.style.display = 'none'; // 3. Hide the mole
             moleVisible = false;
         }
     }
@@ -163,17 +169,18 @@
     });
 
     function endGame() {
-        // Stop the mole movement and countdown timers
+        // 1. Stop the mole movement and countdown timers
         clearInterval(gameTimer);
         clearInterval(countdownTimer);
 
-        // Hide any remaining mole on the grid
+        // 2. Hide any remaining mole on the grid
         const moles = document.querySelectorAll('.mole');
         moles.forEach(mole => mole.style.display = 'none');
 
+        // 3. Display an alert or message showing the final score.
         alert(`Game Over! Your final score is: ${score}`);
 
-        // Reset the game
+        // 4. Reset the game to allow playing again.
         score = 0;
         timeLeft = 10;
         document.getElementById('score-board').textContent = `Score: ${score}`;
