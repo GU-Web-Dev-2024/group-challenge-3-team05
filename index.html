@@ -153,19 +153,23 @@
             } else {
             // 2. Generate a random index to select a new hole. 
              //      hint: you need to then find all "mole holes" and randomly choose one from the list.   
-                currentHole = Math.floor(Math.random() * 9); // random #0-8
+                currentHole = Math.floor(Math.random() * 6); // random #0-5
             }
         
             // 3. Show the mole in the new hole.
-            
+
             // 4. Add a click event listener to the mole to handle "whacking".            
         }
 
         // TODO: whack mole game logic
-        function whack() {
+        function whack(chosenHole) {
             // Algorithm:
             // 0. if the mole is visible...
-            // 1. Increase the score.           
+            if (chosenHole == currentHole) {
+                // 1. Increase the score.           
+                sc
+
+            }
             // 2. Update the score display in the HTML.           
             // 3. Hide the mole after it's whacked.            
         }
