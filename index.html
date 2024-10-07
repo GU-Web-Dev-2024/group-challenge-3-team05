@@ -106,9 +106,6 @@
         moleVisible = false;
 
         // Get references to DOM elements
-        // Example:
-        // const startButton = document.getElementById('startButton');
-
         const startButton = document.getElementById('startButton');
 
         // Add event listener to the start button
@@ -118,7 +115,6 @@
         function startGame() {
             // Algorithm:
             // 1. Reset game variables: score starts at 0, timer starts at max, mole visibility, etc.
-
             score = 0;
             timeLeft = 10;
             moleVisible = false;
@@ -138,6 +134,8 @@
             }
 
             // 2. Update JS variables and HTML elements to reflect this.
+
+            
             // 3. Start the mole movement interval using setInterval().
             //    e.g., - gameTimer = setInterval(randomHole, 1000); // Move mole every second
             // 4. Start the countdown timer using setInterval().
@@ -166,8 +164,11 @@
         // TODO: end game logic function
         function endGame() {
             // Algorithm:
-            // 1. Stop the mole movement and countdown timers using clearInterval().            
-            // 2. Hide any remaining mole on the grid.            /
+            // 1. Stop the mole movement and countdown timers using clearInterval().
+            clearInterval(gameTimer);
+            clearInterval(countdownTimer);
+
+            // 2. Hide any remaining mole on the grid.
             // 3. Display an alert or message showing the final score.            
             // 4. Reset the game to allow playing again.
         }
